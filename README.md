@@ -31,11 +31,11 @@ Enables custom content on the client after login, e.g. custom css. Ideal in mult
 * Create a _ContentAlias_ configuration record (via admin pages) for each Microflow that delivers content. The ContentAlias links an alias as used in the url path to the created Microflow. The Microflow must be fully qualified, i.e including the module name. The alias is used in the url path, following the handler url path name (e.g. /content/\<alias\>) which in turn triggers the configured Microflow.
 * The content from the Microflow can now be returned to the client with a call to the url: (example) **\<your base url\>/content/\<alias\>**. The Microflow is executed in the user's context. Use "Apply entity access" on your Microflow to enforce user's security.
 * If you want to use parameters to your Microflow, use request parameters: (example) **\<your base url\>/content/\<alias\>?name=mycontent&lang=nl** etc. These parameters are passed to the Microflow as a list of _KVP_ entities. Each parameter pair results in 1 KVP entity. Note that in the _ContentAlias_ config record, you need to set _ParseRequestParams_ to true to parse the request parameters.
-* To enable custom css in your browser, add an HTMLSnippet widget on your page/ layout, set its type to JavaScript and use e.g.
-\
+* To enable custom css in your browser, add an _HTMLSnippet_ widget on your page/ layout, set its type to JavaScript and use e.g.
+
 ```
-    require(["dojo/dom-construct"], function(domConstruct){\
-        domConstruct.create('link', { rel: "stylesheet", type: "text/css", href: mx.appUrl + 'content/css'}, dojo.body(), "last");\
+    require(["dojo/dom-construct"], function(domConstruct){
+        domConstruct.create('link', { rel: "stylesheet", type: "text/css", href: mx.appUrl + 'content/css'}, dojo.body(), "last");
     });
 ```
 
