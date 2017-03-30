@@ -33,9 +33,11 @@ Enables custom content on the client after login, e.g. custom css. Ideal in mult
 * If you want to use parameters to your Microflow, use request parameters: (example) **\<your base url\>/content/\<alias\>?name=mycontent&lang=nl** etc. These parameters are passed to the Microflow as a list of _KVP_ entities. Each parameter pair results in 1 KVP entity. Note that in the _ContentAlias_ config record, you need to set _ParseRequestParams_ to true to parse the request parameters.
 * To enable custom css in your browser, add an HTMLSnippet widget on your page/ layout, set its type to JavaScript and use e.g.
 \
+```
     require(["dojo/dom-construct"], function(domConstruct){\
         domConstruct.create('link', { rel: "stylesheet", type: "text/css", href: mx.appUrl + 'content/css'}, dojo.body(), "last");\
     });
+```
 
 # Remarks
 
